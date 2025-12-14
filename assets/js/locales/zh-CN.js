@@ -1,4 +1,5 @@
-const zhCN = {
+// 将const改为var以兼容更老的浏览器，并移除export语句
+var zhCN = {
   meta: {
     description: "Filmeto — AI 驱动的 storyboard 分镜软件。把剧本快速转为镜头语言、分镜画布与可交付的镜头表。",
     title: "Filmeto — AI 驱动的 Storyboard 分镜"
@@ -170,4 +171,3 @@ const zhCN = {
   }
 };
 
-export default zhCN;

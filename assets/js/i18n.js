@@ -1,61 +1,72 @@
-class I18n {
-  constructor() {
-    this.currentLang = this.getStoredLanguage() || this.detectLanguage();
-    this.translations = {};
+// 使用构造函数替代class定义
+function I18n() {
+  this.currentLang = this.getStoredLanguage() || this.detectLanguage();
+  this.translations = {};
+}
+
+I18n.prototype.detectLanguage = function() {
+  const lang = navigator.language || navigator.languages[0];
+  return lang.startsWith('zh') ? 'zh-CN' : 'en-US';
+};
+
+I18n.prototype.getStoredLanguage = function() {
+  return localStorage.getItem('filmeto-lang');
+};
+
+I18n.prototype.setLanguage = function(lang) {
+  this.currentLang = lang;
+  localStorage.setItem('filmeto-lang', lang);
+  document.documentElement.lang = lang === 'zh-CN' ? 'zh-CN' : 'en';
+  this.updatePageContent();
+  // 重新加载特性列表
+  this.reloadFeatures();
+};
+
+I18n.prototype.loadLanguage = function(lang, callback) {
+  if (this.translations[lang]) {
+    if (callback) callback();
+    return;
   }
 
-  detectLanguage() {
-    const lang = navigator.language || navigator.languages[0];
-    return lang.startsWith('zh') ? 'zh-CN' : 'en-US';
-  }
-
-  getStoredLanguage() {
-    return localStorage.getItem('filmeto-lang');
-  }
-
-  setLanguage(lang) {
-    this.currentLang = lang;
-    localStorage.setItem('filmeto-lang', lang);
-    document.documentElement.lang = lang === 'zh-CN' ? 'zh-CN' : 'en';
-    this.updatePageContent();
-    // 重新加载特性列表
-    this.reloadFeatures();
-  }
-
-  async loadLanguage(lang) {
-    if (this.translations[lang]) {
-      return this.translations[lang];
+  // 使用XMLHttpRequest加载语言文件
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', `./assets/js/locales/${lang}.js`, true);
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // 使用eval执行语言文件（注意：实际项目中应该使用更安全的方法）
+      eval(xhr.responseText);
+      if (lang === 'zh-CN') {
+        this.translations[lang] = zhCN;
+      } else if (lang === 'en-US') {
+        this.translations[lang] = enUS;
+      }
+      if (callback) callback();
     }
+  };
+  xhr.send();
+};
 
-    try {
-      const module = await import(`./locales/${lang}.js`);
-      this.translations[lang] = module.default;
-      return this.translations[lang];
-    } catch (error) {
-      console.error(`Failed to load language file: ${lang}`, error);
-      return null;
-    }
-  }
+I18n.prototype.t = function(key) {
+  const keys = key.split('.');
+  let value = this.translations[this.currentLang];
+  
+  if (!value) return key;
 
-  t(key) {
-    const keys = key.split('.');
-    let value = this.translations[this.currentLang];
-    
+  for (const k of keys) {
+    value = value[k];
     if (!value) return key;
-
-    for (const k of keys) {
-      value = value[k];
-      if (!value) return key;
-    }
-
-    return value;
   }
 
-  async initialize() {
-    await this.loadLanguage(this.currentLang);
+  return value;
+};
+
+I18n.prototype.initialize = function(callback) {
+  this.loadLanguage(this.currentLang, () => {
     this.renderLanguageSwitcher();
     this.updatePageContent();
-  }
+    if (callback) callback();
+  });
+};
 
   renderLanguageSwitcher() {
     // 移除可能存在的旧语言切换器
@@ -304,13 +315,13 @@ class I18n {
 
 // Initialize i18n
 const i18n = new I18n();
+window.i18n = i18n;
 
 // 当DOM加载完成后初始化
-document.addEventListener('DOMContentLoaded', async () => {
-  await i18n.initialize();
-  
-  // 将i18n实例挂载到window对象上供其他脚本使用
-  window.i18n = i18n;
-});
-
-export default i18n;
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() {
+    i18n.initialize();
+  });
+} else {
+  i18n.initialize();
+}

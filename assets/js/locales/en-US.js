@@ -1,4 +1,5 @@
-const enUS = {
+// 将const改为var以兼容更老的浏览器，并移除export语句
+var enUS = {
   meta: {
     description: "Filmeto — AI-powered storyboard software. Quickly convert scripts into shot language, storyboard canvas, and deliverable shot lists.",
     title: "Filmeto — AI-powered Storyboard Software"
@@ -170,4 +171,3 @@ const enUS = {
   }
 };
 
-export default enUS;
