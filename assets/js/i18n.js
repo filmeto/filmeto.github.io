@@ -68,7 +68,7 @@ I18n.prototype.initialize = function(callback) {
   });
 };
 
-  renderLanguageSwitcher() {
+I18n.prototype.renderLanguageSwitcher = function() {
     // 移除可能存在的旧语言切换器
     const existingSwitcher = document.querySelector('.language-switcher');
     if (existingSwitcher) {
@@ -100,14 +100,16 @@ I18n.prototype.initialize = function(callback) {
       }
       
       const toggleButton = document.getElementById('lang-toggle');
-      toggleButton.addEventListener('click', () => {
-        const newLang = this.currentLang === 'zh-CN' ? 'en-US' : 'zh-CN';
-        this.setLanguage(newLang);
-      });
+      if (toggleButton) {
+        toggleButton.addEventListener('click', () => {
+          const newLang = this.currentLang === 'zh-CN' ? 'en-US' : 'zh-CN';
+          this.setLanguage(newLang);
+        });
+      }
     }
-  }
+  };
 
-  updatePageContent() {
+I18n.prototype.updatePageContent = function() {
     // Update meta tags
     document.querySelector('meta[name="description"]').setAttribute('content', this.t('meta.description'));
     document.title = this.t('meta.title');
@@ -181,7 +183,7 @@ I18n.prototype.initialize = function(callback) {
     // Update footer
     const footerNotice = document.querySelector('.footer > .container > div > span:last-child');
     if (footerNotice) footerNotice.textContent = this.t('footer.notice');
-  }
+  };
 
   reloadFeatures() {
     // 清空现有的特性列表
@@ -202,7 +204,7 @@ I18n.prototype.initialize = function(callback) {
     }
   }
 
-  setupFeatureAutoLoad() {
+I18n.prototype.setupFeatureAutoLoad = function() {
     const list = document.querySelector('#features-list');
     const sentinel = document.querySelector('#features-sentinel');
     if (!list || !sentinel) return;
@@ -257,9 +259,9 @@ I18n.prototype.initialize = function(callback) {
     }, { rootMargin: '200px 0px' });
 
     moreObserver.observe(sentinel);
-  }
+  };
 
-  createFeatureCard(feature, index) {
+I18n.prototype.createFeatureCard = function(feature, index) {
     const el = (tag, attrs = {}, children = []) => {
       const node = document.createElement(tag);
       for (const [k, v] of Object.entries(attrs)) {
@@ -294,9 +296,9 @@ I18n.prototype.initialize = function(callback) {
     const children = isEven ? [text, shot] : [shot, text];
 
     return el('article', { class: 'feature', 'data-feature-idx': String(index) }, children);
-  }
+  };
 
-  setupReveal(nodes) {
+I18n.prototype.setupReveal = function(nodes) {
     const items = Array.from(nodes || document.querySelectorAll('.feature'));
     if (!items.length) return;
 
@@ -310,8 +312,9 @@ I18n.prototype.initialize = function(callback) {
     }, { threshold: 0.12 });
 
     for (const node of items) io.observe(node);
-  }
-}
+  };
+
+};
 
 // Initialize i18n
 const i18n = new I18n();
