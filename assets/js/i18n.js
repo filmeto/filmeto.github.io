@@ -188,6 +188,53 @@ I18n.prototype.updatePageContent = function() {
     const contactSupport = document.querySelector('.contact .pill');
     if (contactSupport) contactSupport.textContent = this.t('contact.support');
 
+    // Update contact grid section titles
+    const contactSectionTitles = document.querySelectorAll('.contact-grid .card h3');
+    if (contactSectionTitles.length >= 2) {
+      contactSectionTitles[0].textContent = this.t('contact.supportAndFeedback.title');
+      contactSectionTitles[1].textContent = this.t('contact.contribution.title');
+    }
+
+    // Update contact list items
+    const contactGridCards = document.querySelectorAll('.contact-grid .card');
+    if (contactGridCards.length >= 2) {
+      // Update support and feedback items
+      const supportFeedbackItems = contactGridCards[0].querySelectorAll('.list li');
+      if (supportFeedbackItems.length >= 3) {
+        const supportTexts = this.t('contact.supportAndFeedback.items');
+        if (Array.isArray(supportTexts)) {
+          for (let i = 0; i < supportFeedbackItems.length && i < supportTexts.length; i++) {
+            const textSpan = supportFeedbackItems[i].querySelector('span:first-child');
+            const hintSpan = supportFeedbackItems[i].querySelector('span.hint');
+            if (textSpan && supportTexts[i]) {
+              textSpan.textContent = supportTexts[i].text;
+            }
+            if (hintSpan && supportTexts[i]) {
+              hintSpan.textContent = supportTexts[i].hint;
+            }
+          }
+        }
+      }
+
+      // Update contribution items
+      const contributionItems = contactGridCards[1].querySelectorAll('.list li');
+      if (contributionItems.length >= 3) {
+        const contributionTexts = this.t('contact.contribution.items');
+        if (Array.isArray(contributionTexts)) {
+          for (let i = 0; i < contributionItems.length && i < contributionTexts.length; i++) {
+            const textSpan = contributionItems[i].querySelector('span:first-child');
+            const hintSpan = contributionItems[i].querySelector('span.hint');
+            if (textSpan && contributionTexts[i]) {
+              textSpan.textContent = contributionTexts[i].text;
+            }
+            if (hintSpan && contributionTexts[i]) {
+              hintSpan.textContent = contributionTexts[i].hint;
+            }
+          }
+        }
+      }
+    }
+
     // Update language toggle button
     const langToggle = document.getElementById('lang-toggle');
     if (langToggle) {
