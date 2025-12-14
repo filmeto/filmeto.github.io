@@ -178,6 +178,52 @@ I18n.prototype.updatePageContent = function() {
     const downloadPlatform = document.querySelector('.download .pill');
     if (downloadPlatform) downloadPlatform.textContent = this.t('download.platform');
 
+    // Update download cards
+    const downloadCards = document.querySelectorAll('.download .card');
+    if (downloadCards.length >= 3) {
+      // Update macOS card
+      const macosCard = downloadCards[0];
+      const macosH3 = macosCard.querySelector('h3');
+      const macosP = macosCard.querySelector('p');
+      const macosMeta = macosCard.querySelector('.meta');
+      const macosBtn = macosCard.querySelector('.btn');
+      const macosVersion = macosCard.querySelector('.actions .pill');
+
+      if (macosH3) macosH3.textContent = this.t('download.cards.0.title');
+      if (macosP) macosP.textContent = this.t('download.cards.0.description');
+      if (macosMeta) macosMeta.textContent = this.t('download.cards.0.path');
+      if (macosBtn) macosBtn.textContent = this.t('download.cards.0.button');
+      if (macosVersion) macosVersion.textContent = this.t('download.cards.0.version');
+
+      // Update Windows card
+      const windowsCard = downloadCards[1];
+      const windowsH3 = windowsCard.querySelector('h3');
+      const windowsP = windowsCard.querySelector('p');
+      const windowsMeta = windowsCard.querySelector('.meta');
+      const windowsBtn = windowsCard.querySelector('.btn');
+      const windowsVersion = windowsCard.querySelector('.actions .pill');
+
+      if (windowsH3) windowsH3.textContent = this.t('download.cards.1.title');
+      if (windowsP) windowsP.textContent = this.t('download.cards.1.description');
+      if (windowsMeta) windowsMeta.textContent = this.t('download.cards.1.path');
+      if (windowsBtn) windowsBtn.textContent = this.t('download.cards.1.button');
+      if (windowsVersion) windowsVersion.textContent = this.t('download.cards.1.version');
+
+      // Update Linux card
+      const linuxCard = downloadCards[2];
+      const linuxH3 = linuxCard.querySelector('h3');
+      const linuxP = linuxCard.querySelector('p');
+      const linuxMeta = linuxCard.querySelector('.meta');
+      const linuxBtn = linuxCard.querySelector('.btn');
+      const linuxVersion = linuxCard.querySelector('.actions .pill');
+
+      if (linuxH3) linuxH3.textContent = this.t('download.cards.2.title');
+      if (linuxP) linuxP.textContent = this.t('download.cards.2.description');
+      if (linuxMeta) linuxMeta.textContent = this.t('download.cards.2.path');
+      if (linuxBtn) linuxBtn.textContent = this.t('download.cards.2.button');
+      if (linuxVersion) linuxVersion.textContent = this.t('download.cards.2.version');
+    }
+
     // Update contact section
     const contactTitle = document.querySelector('.contact .section-title h2');
     if (contactTitle) contactTitle.textContent = this.t('contact.title');

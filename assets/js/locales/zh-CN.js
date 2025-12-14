@@ -7,9 +7,9 @@ var zhCN = {
   header: {
     brand: "Filmeto",
     nav: {
-      filmeto: "Filmeto",
-      download: "Download",
-      contact: "Contact",
+      filmeto: "特性",
+      download: "下载",
+      contact: "联系",
       github: "Github",
       cta: "立即下载"
     }
@@ -99,7 +99,7 @@ var zhCN = {
     ]
   },
   download: {
-    title: "Download",
+    title: "下载",
     description: "这里先提供各系统下载入口占位（可随时替换为真实安装包与校验信息）。",
     platform: "多平台",
     cards: [
@@ -127,7 +127,7 @@ var zhCN = {
     ]
   },
   contact: {
-    title: "Contact",
+    title: "联系",
     description: "客户支持、Bug 反馈、功能请求与 Pull Request 入口。",
     support: "Support",
     supportAndFeedback: {

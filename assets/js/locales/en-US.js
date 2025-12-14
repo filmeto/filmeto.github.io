@@ -7,7 +7,7 @@ var enUS = {
   header: {
     brand: "Filmeto",
     nav: {
-      filmeto: "Filmeto",
+      filmeto: "Feature",
       download: "Download",
       contact: "Contact",
       github: "Github",
