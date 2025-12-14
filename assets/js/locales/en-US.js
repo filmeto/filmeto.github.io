@@ -1,12 +1,12 @@
 const enUS = {
   meta: {
-    description: "Filemeto — AI-powered storyboard software. Quickly convert scripts into shot language, storyboard canvas, and deliverable shot lists.",
+    description: "Filmeto — AI-powered storyboard software. Quickly convert scripts into shot language, storyboard canvas, and deliverable shot lists.",
     title: "Filmeto — AI-powered Storyboard Software"
   },
   header: {
     brand: "Filmeto",
     nav: {
-      filemeto: "Filemeto",
+      filmeto: "Filmeto",
       download: "Download",
       contact: "Contact",
       github: "Github",
@@ -16,7 +16,7 @@ const enUS = {
   hero: {
     kicker: "AI-powered storyboard software",
     title: "Turn stories into shots, turn shots into deliverable storyboards.",
-    description: "Filemeto uses AI to automatically generate storyboard suggestions from scripts/outline, and quickly organize shot sequences, notes, reviews and exports on the canvas, suitable for short films, advertising, animation and content creation workflows.",
+    description: "Filmeto uses AI to automatically generate storyboard suggestions from scripts/outline, and quickly organize shot sequences, notes, reviews and exports on the canvas, suitable for short films, advertising, animation and content creation workflows.",
     actions: {
       download: "Download",
       github: "Github",
@@ -36,7 +36,9 @@ const enUS = {
           ['Shot Suggestions', 'Automatically provide framing/angle/movement'],
           ['Rhythm Control', 'Support fast-cut/long-take styles'],
           ['Editable', 'Each frame can be fine-tuned separately'],
-        ]
+        ],
+        img: './assets/img/feature-01.svg',
+        alt: 'Filmeto Feature Screenshot: AI Auto Storyboarding'
       },
       {
         title: 'Storyboard Canvas: Drag-and-Drop Layout and Shot Sequences',
@@ -45,7 +47,9 @@ const enUS = {
           ['Drag Sorting', 'Shot order and grouping changed by dragging'],
           ['Labeling Info', 'Duration, shot number, scene, notes'],
           ['Multiple Views', 'Freely switch between grid/timeline/list'],
-        ]
+        ],
+        img: './assets/img/feature-02.svg',
+        alt: 'Filmeto Feature Screenshot: Canvas and Sequences'
       },
       {
         title: 'Consistency Control: Keeping Characters/Scenes/Props On Track',
@@ -54,7 +58,9 @@ const enUS = {
           ['Settings Library', 'Unified management of characters, scenes, props'],
           ['Style Anchors', 'Color tone/shot language/emotional baseline'],
           ['Constrained Generation', 'Avoid conflicts in character settings and scenes'],
-        ]
+        ],
+        img: './assets/img/feature-03.svg',
+        alt: 'Filmeto Feature Screenshot: Consistency Control'
       },
       {
         title: 'Shot Comments and Collaboration: More Efficient Review',
@@ -63,7 +69,9 @@ const enUS = {
           ['Frame-by-frame Comments', 'Each frame is a discussion context'],
           ['Version Comparison', 'Changes visible at a glance'],
           ['Export and Share', 'Share links or export review packages'],
-        ]
+        ],
+        img: './assets/img/feature-04.svg',
+        alt: 'Filmeto Feature Screenshot: Collaboration and Review'
       },
       {
         title: 'Structured Breakdown: Traceable Link from Paragraphs to Shots',
@@ -72,7 +80,9 @@ const enUS = {
           ['Traceable', 'Bidirectional jump between shots ↔ text paragraphs'],
           ['Tag System', 'Emotion, location, character, action'],
           ['Quick Reorganization', 'Batch adjustment by tags/scenes'],
-        ]
+        ],
+        img: './assets/img/feature-05.svg',
+        alt: 'Filmeto Feature Screenshot: Structured Breakdown'
       },
       {
         title: 'One-click Export: Delivery Formats Cover Common Workflows',
@@ -81,7 +91,9 @@ const enUS = {
           ['Common Formats', 'PDF/PNG sequence/CSV shot list'],
           ['Resolution', 'Support HD and print versions'],
           ['Extensible', 'More delivery templates can be accessed subsequently'],
-        ]
+        ],
+        img: './assets/img/feature-06.svg',
+        alt: 'Filmeto Feature Screenshot: Export and Delivery'
       }
     ]
   },
@@ -93,21 +105,21 @@ const enUS = {
       {
         title: "macOS",
         description: "Suitable for Apple Silicon / Intel. Recommended to distribute through signed installer.",
-        path: "Placeholder path: `./downloads/Filemeto-mac.dmg`",
+        path: "Placeholder path: `./downloads/Filmeto-mac.dmg`",
         button: "Download DMG (Placeholder)",
         version: "macOS 12+"
       },
       {
         title: "Windows",
         description: "Recommended to provide installer (.exe) and portable version (.zip).",
-        path: "Placeholder path: `./downloads/Filemeto-win.exe`",
+        path: "Placeholder path: `./downloads/Filmeto-win.exe`",
         button: "Download EXE (Placeholder)",
         version: "Windows 10+"
       },
       {
         title: "Linux",
         description: "AppImage / deb / rpm can be provided, more friendly to multiple distributions.",
-        path: "Placeholder path: `./downloads/Filemeto-linux.AppImage`",
+        path: "Placeholder path: `./downloads/Filmeto-linux.AppImage`",
         button: "Download AppImage (Placeholder)",
         version: "x86_64"
       }
@@ -122,7 +134,7 @@ const enUS = {
       items: [
         {
           text: "Customer Support (Email)",
-          hint: "support@filemeto.app (Placeholder)"
+          hint: "support@filmeto.app (Placeholder)"
         },
         {
           text: "Bug Report (Issues)",
@@ -153,7 +165,7 @@ const enUS = {
     }
   },
   footer: {
-    copyright: "© {year} Filemeto",
+    copyright: "© {year} Filmeto",
     notice: "Dark · Simple · Extensible directories: `assets/` / `downloads/` (can be added later)"
   }
 };

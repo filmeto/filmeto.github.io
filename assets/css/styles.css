@@ -60,23 +60,34 @@ a:hover{opacity:.92}
 
 /* Language Switcher */
 .language-switcher {
+  display: flex;
+  align-items: center;
   margin-left: 16px;
 }
 
 .lang-toggle {
-  padding: 6px 12px;
-  border-radius: 12px;
-  background: rgba(255,255,255,.06);
+  padding: 8px 14px;
+  border-radius: 16px;
+  background: rgba(124, 92, 255, 0.15);
   border: 1px solid var(--border2);
-  color: var(--muted);
+  color: var(--text);
   font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .lang-toggle:hover {
-  color: var(--text);
-  background: rgba(255,255,255,.1);
+  background: rgba(124, 92, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.lang-toggle::before {
+  content: "🌐";
+  font-size: 16px;
 }
 
 .brand{
@@ -294,6 +305,39 @@ section{scroll-margin-top:78px}
 
 @keyframes shimmer{0%{background-position:0 0}100%{background-position:-200% 0}}
 @media (prefers-reduced-motion: reduce){.skeleton{animation:none}}
+
+/* Language Switcher */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.lang-toggle {
+  padding: 8px 14px;
+  border-radius: 16px;
+  background: rgba(124, 92, 255, 0.15);
+  border: 1px solid var(--border2);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-toggle:hover {
+  background: rgba(124, 92, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.lang-toggle::before {
+  content: "🌐";
+  font-size: 16px;
+}
 
 /* Download */
 .download{padding:70px 0 10px}

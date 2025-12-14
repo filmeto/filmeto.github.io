@@ -1,4 +1,4 @@
-/* Filemeto landing page interactions */
+/* Filmeto landing page interactions */
 
 // 修改FEATURES为从i18n获取
 const FEATURES = [];

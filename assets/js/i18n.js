@@ -58,17 +58,35 @@ class I18n {
   }
 
   renderLanguageSwitcher() {
+    // 移除可能存在的旧语言切换器
+    const existingSwitcher = document.querySelector('.language-switcher');
+    if (existingSwitcher) {
+      existingSwitcher.remove();
+    }
+
     const switcher = document.createElement('div');
     switcher.className = 'language-switcher';
     switcher.innerHTML = `
       <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">
-        ${this.currentLang === 'zh-CN' ? 'EN' : '中文'}
+        <span class="lang-text">${this.currentLang === 'zh-CN' ? 'EN' : '中文'}</span>
       </button>
     `;
     
     const header = document.querySelector('.header-inner');
     if (header) {
-      header.appendChild(switcher);
+      // 在导航栏中插入语言切换器
+      const nav = header.querySelector('.nav');
+      if (nav) {
+        // 在导航链接之后但在CTA按钮之前插入语言切换器
+        const ctaButton = nav.querySelector('.nav-cta');
+        if (ctaButton) {
+          nav.insertBefore(switcher, ctaButton);
+        } else {
+          nav.appendChild(switcher);
+        }
+      } else {
+        header.appendChild(switcher);
+      }
       
       const toggleButton = document.getElementById('lang-toggle');
       toggleButton.addEventListener('click', () => {
@@ -89,7 +107,7 @@ class I18n {
 
     const navLinks = document.querySelectorAll('.nav a');
     if (navLinks.length >= 5) {
-      navLinks[0].textContent = this.t('header.nav.filemeto');
+      navLinks[0].textContent = this.t('header.nav.filmeto');
       navLinks[1].textContent = this.t('header.nav.download');
       navLinks[2].textContent = this.t('header.nav.contact');
       navLinks[3].textContent = this.t('header.nav.github');
@@ -146,7 +164,7 @@ class I18n {
     // Update language toggle button
     const langToggle = document.getElementById('lang-toggle');
     if (langToggle) {
-      langToggle.textContent = this.currentLang === 'zh-CN' ? 'EN' : '中文';
+      langToggle.querySelector('.lang-text').textContent = this.currentLang === 'zh-CN' ? 'EN' : '中文';
     }
 
     // Update footer
@@ -245,7 +263,7 @@ class I18n {
 
     const bulletItems = feature.bullets.map(([strong, faint]) =>
       el('li', {}, [
-        el('strong', { html: strong + (this.currentLang === 'zh-CN' ? '：' : ': ') }),
+        el('strong', { html: strong + '：' }),
         el('span', { html: ' ' + faint }),
       ])
     );
