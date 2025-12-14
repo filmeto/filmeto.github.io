@@ -16,6 +16,11 @@ function el(tag, attrs = {}, children = []) {
 }
 
 function createFeatureCard(feature, index) {
+  // Check if feature and feature.bullets are defined before using map
+  if (!feature || !Array.isArray(feature.bullets)) {
+    return el('article', { class: 'feature', 'data-feature-idx': String(index) }, []);
+  }
+
   const bulletItems = feature.bullets.map(([strong, faint]) =>
     el('li', {}, [
       el('strong', { html: strong + '：' }),
@@ -51,13 +56,20 @@ function setupFeatureAutoLoad() {
   function appendNextBatch() {
     // 从i18n获取特性列表
     const featuresList = window.i18n ? window.i18n.t('features.list') : [];
-    const end = Math.min(cursor + BATCH, featuresList.length);
-    for (let i = cursor; i < end; i += 1) {
-      list.append(createFeatureCard(featuresList[i], i));
-    }
-    cursor = end;
 
-    if (cursor >= featuresList.length) {
+    // Only proceed if featuresList is an array with items
+    if (featuresList && Array.isArray(featuresList)) {
+      const end = Math.min(cursor + BATCH, featuresList.length);
+      for (let i = cursor; i < end; i += 1) {
+        list.append(createFeatureCard(featuresList[i], i));
+      }
+      cursor = end;
+
+      if (cursor >= featuresList.length) {
+        sentinel.remove();
+      }
+    } else {
+      // If featuresList is not available, remove the sentinel to stop the loading process
       sentinel.remove();
     }
 

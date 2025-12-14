@@ -229,14 +229,20 @@ I18n.prototype.setupFeatureAutoLoad = function() {
       const featuresList = this.t('features.list');
       if (!featuresList) return;
       
-      const end = Math.min(cursor + BATCH, featuresList.length);
-      for (let i = cursor; i < end; i += 1) {
-        const featureCard = this.createFeatureCard(featuresList[i], i);
-        list.append(featureCard);
-      }
-      cursor = end;
+      // Only proceed if featuresList is an array with items
+      if (featuresList && Array.isArray(featuresList)) {
+        const end = Math.min(cursor + BATCH, featuresList.length);
+        for (let i = cursor; i < end; i += 1) {
+          const featureCard = this.createFeatureCard(featuresList[i], i);
+          list.append(featureCard);
+        }
+        cursor = end;
 
-      if (cursor >= featuresList.length) {
+        if (cursor >= featuresList.length) {
+          sentinel.remove();
+        }
+      } else {
+        // If featuresList is not available, remove the sentinel to stop the loading process
         sentinel.remove();
       }
 
@@ -286,6 +292,11 @@ I18n.prototype.createFeatureCard = function(feature, index) {
       for (const child of children) node.append(child);
       return node;
     };
+
+    // Check if feature and feature.bullets are defined before using map
+    if (!feature || !Array.isArray(feature.bullets)) {
+      return el('article', { class: 'feature', 'data-feature-idx': String(index) }, []);
+    }
 
     const bulletItems = feature.bullets.map(([strong, faint]) =>
       el('li', {}, [
