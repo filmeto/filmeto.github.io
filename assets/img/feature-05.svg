@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c5cff" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0.70"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="30" fill="#0c1118"/>
+  <rect x="28" y="28" width="1144" height="704" rx="24" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.12)"/>
+
+  <rect x="56" y="74" width="520" height="620" rx="22" fill="rgba(0,0,0,.25)" stroke="rgba(255,255,255,.10)"/>
+  <rect x="600" y="74" width="544" height="620" rx="22" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.10)"/>
+
+  <rect x="86" y="112" width="360" height="44" rx="14" fill="url(#g)" opacity="0.30"/>
+  <g fill="rgba(255,255,255,.06)">
+    <rect x="86" y="176" width="460" height="86" rx="16"/>
+    <rect x="86" y="278" width="460" height="86" rx="16"/>
+    <rect x="86" y="380" width="460" height="86" rx="16"/>
+    <rect x="86" y="482" width="460" height="86" rx="16"/>
+  </g>
+
+  <g fill="rgba(255,255,255,.06)">
+    <rect x="630" y="112" width="484" height="160" rx="18"/>
+    <rect x="630" y="292" width="484" height="160" rx="18"/>
+    <rect x="630" y="472" width="320" height="222" rx="18"/>
+  </g>
+
+  <text x="82" y="120" font-family="ui-sans-serif, system-ui" font-size="22" fill="rgba(231,234,240,.92)" font-weight="700">y' 05Ó„Æãý*</text>
+  <text x="70" y="690" font-family="ui-sans-serif, system-ui" font-size="14" fill="rgba(167,176,192,.9)">*þ`Mÿb:ž§Á*þ	</text>
+</svg>
