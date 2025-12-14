@@ -1,73 +1,7 @@
 /* Filemeto landing page interactions */
 
-const FEATURES = [
-  {
-    title: 'AI 自动分镜：从剧本到镜头语言',
-    desc: '把长文本拆成可执行的镜头：节奏、景别、运动、情绪提示一并给出，并且可随时一键重写。',
-    bullets: [
-      ['镜头建议', '自动给出景别/角度/运动'],
-      ['节奏控制', '支持快剪/长镜头风格'],
-      ['可编辑', '每一格都能单独微调'],
-    ],
-    img: './assets/img/feature-01.svg',
-    alt: 'Filemeto 功能截图占位：AI 自动分镜',
-  },
-  {
-    title: 'Storyboard 画布：拖拽排版与镜头序列',
-    desc: '像搭乐高一样排镜头：拖拽排序、分组、标注镜头号与时长，保持创作流畅。',
-    bullets: [
-      ['拖拽排序', '镜头顺序与分组一拖即改'],
-      ['标注信息', '时长、镜头号、场次、备注'],
-      ['多视图', '网格/时间线/列表自由切换'],
-    ],
-    img: './assets/img/feature-02.svg',
-    alt: 'Filemeto 功能截图占位：画布与序列',
-  },
-  {
-    title: '一致性控制：角色/场景/道具保持不跑偏',
-    desc: '建立项目级“视觉与叙事设定”，让每次生成都更贴近你的世界观与风格。',
-    bullets: [
-      ['设定库', '角色、场景、道具统一管理'],
-      ['风格锚点', '色调/镜头语言/情绪基线'],
-      ['约束生成', '避免人物设定与场景冲突'],
-    ],
-    img: './assets/img/feature-03.svg',
-    alt: 'Filemeto 功能截图占位：一致性控制',
-  },
-  {
-    title: '镜头备注与协作：评审更高效',
-    desc: '把意见落在镜头上：逐格评论、@协作者、标记修改点，让评审过程更可追溯。',
-    bullets: [
-      ['逐格评论', '每一格都是讨论的上下文'],
-      ['版本对比', '改动点一眼可见'],
-      ['导出共享', '分享链接或导出评审包'],
-    ],
-    img: './assets/img/feature-04.svg',
-    alt: 'Filemeto 功能截图占位：协作与评审',
-  },
-  {
-    title: '结构化拆解：从段落到镜头的可追踪链路',
-    desc: '每个镜头都能回溯到原始段落与意图，方便做“为什么这样拍”的解释与复盘。',
-    bullets: [
-      ['可追踪', '镜头 ↔ 文本段落双向跳转'],
-      ['标签体系', '情绪、地点、人物、动作'],
-      ['快速重排', '按标签/场次批量调整'],
-    ],
-    img: './assets/img/feature-05.svg',
-    alt: 'Filemeto 功能截图占位：结构化拆解',
-  },
-  {
-    title: '一键导出：交付格式覆盖常见流程',
-    desc: '面向制作与沟通：把分镜快速交给美术、导演、剪辑与制片的上下游。',
-    bullets: [
-      ['常用格式', 'PDF/PNG 序列/CSV 镜头表'],
-      ['分辨率', '支持高清与打印版'],
-      ['可扩展', '后续可接入更多交付模板'],
-    ],
-    img: './assets/img/feature-06.svg',
-    alt: 'Filemeto 功能截图占位：导出与交付',
-  },
-];
+// 修改FEATURES为从i18n获取
+const FEATURES = [];
 
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
@@ -115,13 +49,15 @@ function setupFeatureAutoLoad() {
   const BATCH = 2;
 
   function appendNextBatch() {
-    const end = Math.min(cursor + BATCH, FEATURES.length);
+    // 从i18n获取特性列表
+    const featuresList = window.i18n ? window.i18n.t('features.list') : [];
+    const end = Math.min(cursor + BATCH, featuresList.length);
     for (let i = cursor; i < end; i += 1) {
-      list.append(createFeatureCard(FEATURES[i], i));
+      list.append(createFeatureCard(featuresList[i], i));
     }
     cursor = end;
 
-    if (cursor >= FEATURES.length) {
+    if (cursor >= featuresList.length) {
       sentinel.remove();
     }
 
