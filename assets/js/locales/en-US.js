@@ -27,7 +27,7 @@ var enUS = {
   features: {
     title: "Understanding Filmeto's Core Capabilities from Multiple Perspectives",
     description: "Scroll down to dynamically load \"screenshots + descriptions\" section by section. You only need to replace `assets/img/feature-*.svg` with real product screenshots later.",
-    loading: "Dynamic Loading · Fade In",
+    loading: "Product features",
     staticNotice: "(Your browser has disabled scripts, showing static placeholder.)",
     list: [
       {
@@ -100,28 +100,28 @@ var enUS = {
   },
   download: {
     title: "Download",
-    description: "Placeholder for download entries for various systems here (can be replaced with real installation packages and checksum information at any time).",
+    description: "Placeholder for download entries for various systems here",
     platform: "Multi-platform",
     cards: [
       {
         title: "macOS",
-        description: "Suitable for Apple Silicon / Intel. Recommended to distribute through signed installer.",
-        path: "Placeholder path: `./downloads/Filmeto-mac.dmg`",
-        button: "Download DMG (Placeholder)",
+        description: "Suitable for Apple Silicon / Intel. ",
+        path: "/downloads/Filmeto-mac.dmg",
+        button: "Download DMG",
         version: "macOS 12+"
       },
       {
         title: "Windows",
         description: "Recommended to provide installer (.exe) and portable version (.zip).",
-        path: "Placeholder path: `./downloads/Filmeto-win.exe`",
-        button: "Download EXE (Placeholder)",
+        path: "downloads/Filmeto-win.ex",
+        button: "Download EXE",
         version: "Windows 10+"
       },
       {
         title: "Linux",
         description: "AppImage / deb / rpm can be provided, more friendly to multiple distributions.",
-        path: "Placeholder path: `./downloads/Filmeto-linux.AppImage`",
-        button: "Download AppImage (Placeholder)",
+        path: "downloads/Filmeto-linux.AppImage",
+        button: "Download AppImage",
         version: "x86_64"
       }
     ]
@@ -135,7 +135,7 @@ var enUS = {
       items: [
         {
           text: "Customer Support (Email)",
-          hint: "support@filmeto.app (Placeholder)"
+          hint: "fuzhiqin@gmail.com"
         },
         {
           text: "Bug Report (Issues)",
@@ -159,7 +159,7 @@ var enUS = {
           hint: "classfoo/filmeto"
         },
         {
-          text: "Contribution Guide (if exists)",
+          text: "Contribution Guide",
           hint: "CONTRIBUTING.md"
         }
       ]
@@ -167,6 +167,6 @@ var enUS = {
   },
   footer: {
     copyright: "© {year} Filmeto",
-    notice: "Dark · Simple · Extensible directories: `assets/` / `downloads/` (can be added later)"
+    notice: "class foo likes function bar"
   }
 }

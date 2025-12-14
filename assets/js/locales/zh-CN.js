@@ -27,7 +27,7 @@ var zhCN = {
   features: {
     title: "从多个角度，拆解 Filmeto 的核心能力",
     description: "向下滚动会逐段动态加载“截图 + 说明”。后续你只需要把 `assets/img/feature-*.svg` 换成真实产品截图即可。",
-    loading: "动态加载 · 渐显",
+    loading: "产品特性",
     staticNotice: "（你的浏览器禁用了脚本，已展示静态占位。）",
     list: [
       {
@@ -82,7 +82,7 @@ var zhCN = {
           ['标签体系', '情绪、地点、人物、动作'],
           ['快速重排', '按标签/场次批量调整'],
         ],
-        img: './assets/img/feature-05.svg',
+        img: './assets/img/feature-01.png',
         alt: 'Filmeto 功能截图占位：结构化拆解'
       },
       {
@@ -100,28 +100,28 @@ var zhCN = {
   },
   download: {
     title: "下载",
-    description: "这里先提供各系统下载入口占位（可随时替换为真实安装包与校验信息）。",
+    description: "这里先提供各系统下载入口。",
     platform: "多平台",
     cards: [
       {
         title: "macOS",
-        description: "适用于 Apple Silicon / Intel。建议通过签名安装包分发。",
-        path: "占位路径：`./downloads/Filmeto-mac.dmg`",
-        button: "下载 DMG（占位）",
+        description: "适用于 Apple Silicon / Intel。",
+        path: "/downloads/Filmeto-mac.dmg",
+        button: "下载 DMG",
         version: "macOS 12+"
       },
       {
         title: "Windows",
         description: "推荐提供安装版（.exe）与便携版（.zip）。",
-        path: "占位路径：`./downloads/Filmeto-win.exe`",
-        button: "下载 EXE（占位）",
+        path: "/downloads/Filmeto-win.exe",
+        button: "下载 EXE",
         version: "Windows 10+"
       },
       {
         title: "Linux",
         description: "可提供 AppImage / deb / rpm，多发行版更友好。",
-        path: "占位路径：`./downloads/Filmeto-linux.AppImage`",
-        button: "下载 AppImage（占位）",
+        path: "/downloads/Filmeto-linux.AppImage",
+        button: "下载 AppImage",
         version: "x86_64"
       }
     ]
@@ -135,7 +135,7 @@ var zhCN = {
       items: [
         {
           text: "客户支持（Email）",
-          hint: "support@filmeto.app（占位）"
+          hint: "fuzhiqin@gmail.com"
         },
         {
           text: "Bug Report（Issues）",
@@ -151,15 +151,15 @@ var zhCN = {
       title: "贡献与协作",
       items: [
         {
-          text: "Pull Request",
-          hint: "贡献代码"
+          text: "贡献代码",
+          hint: "Pull Request"
         },
         {
           text: "项目主页（Github）",
           hint: "classfoo/filmeto"
         },
         {
-          text: "贡献指南（若存在）",
+          text: "贡献指南",
           hint: "CONTRIBUTING.md"
         }
       ]
@@ -167,6 +167,6 @@ var zhCN = {
   },
   footer: {
     copyright: "© {year} Filmeto",
-    notice: "Dark · 简洁 · 可扩展目录：`assets/` / `downloads/`（后续可新增）"
+    notice: "卡拉斯佛喜欢方克薰霸"
   }
 }
