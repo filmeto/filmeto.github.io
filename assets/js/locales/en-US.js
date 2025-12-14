@@ -38,7 +38,7 @@ var enUS = {
           ['Rhythm Control', 'Support fast-cut/long-take styles'],
           ['Editable', 'Each frame can be fine-tuned separately'],
         ],
-        img: './assets/img/feature-01.svg',
+        img: './assets/img/feature-01.png',
         alt: 'Filmeto Feature Screenshot: AI Auto Storyboarding'
       },
       {
@@ -49,7 +49,7 @@ var enUS = {
           ['Labeling Info', 'Duration, shot number, scene, notes'],
           ['Multiple Views', 'Freely switch between grid/timeline/list'],
         ],
-        img: './assets/img/feature-02.svg',
+        img: './assets/img/feature-01.png',
         alt: 'Filmeto Feature Screenshot: Canvas and Sequences'
       },
       {
@@ -60,7 +60,7 @@ var enUS = {
           ['Style Anchors', 'Color tone/shot language/emotional baseline'],
           ['Constrained Generation', 'Avoid conflicts in character settings and scenes'],
         ],
-        img: './assets/img/feature-03.svg',
+        img: './assets/img/feature-01.png',
         alt: 'Filmeto Feature Screenshot: Consistency Control'
       },
       {
@@ -71,7 +71,7 @@ var enUS = {
           ['Version Comparison', 'Changes visible at a glance'],
           ['Export and Share', 'Share links or export review packages'],
         ],
-        img: './assets/img/feature-04.svg',
+        img: './assets/img/feature-01.png',
         alt: 'Filmeto Feature Screenshot: Collaboration and Review'
       },
       {
@@ -82,7 +82,7 @@ var enUS = {
           ['Tag System', 'Emotion, location, character, action'],
           ['Quick Reorganization', 'Batch adjustment by tags/scenes'],
         ],
-        img: './assets/img/feature-05.svg',
+        img: './assets/img/feature-01.png',
         alt: 'Filmeto Feature Screenshot: Structured Breakdown'
       },
       {
@@ -93,7 +93,7 @@ var enUS = {
           ['Resolution', 'Support HD and print versions'],
           ['Extensible', 'More delivery templates can be accessed subsequently'],
         ],
-        img: './assets/img/feature-06.svg',
+        img: './assets/img/feature-01.png',
         alt: 'Filmeto Feature Screenshot: Export and Delivery'
       }
     ]
