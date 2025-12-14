@@ -169,5 +169,4 @@ var enUS = {
     copyright: "© {year} Filmeto",
     notice: "Dark · Simple · Extensible directories: `assets/` / `downloads/` (can be added later)"
   }
-};
-
+}

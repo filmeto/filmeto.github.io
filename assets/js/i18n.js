@@ -32,15 +32,23 @@ I18n.prototype.loadLanguage = function(lang, callback) {
   const xhr = new XMLHttpRequest();
   xhr.open('GET', `./assets/js/locales/${lang}.js`, true);
   xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      // 使用eval执行语言文件（注意：实际项目中应该使用更安全的方法）
-      eval(xhr.responseText);
-      if (lang === 'zh-CN') {
-        this.translations[lang] = zhCN;
-      } else if (lang === 'en-US') {
-        this.translations[lang] = enUS;
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        // 使用eval执行语言文件（注意：实际项目中应该使用更安全的方法）
+        try {
+          eval(xhr.responseText);
+          if (lang === 'zh-CN') {
+            this.translations[lang] = zhCN;
+          } else if (lang === 'en-US') {
+            this.translations[lang] = enUS;
+          }
+          if (callback) callback();
+        } catch (e) {
+          console.error('Error evaluating language file for ' + lang + ':', e);
+        }
+      } else {
+        console.error('Failed to load language file for ' + lang + '. Status: ' + xhr.status);
       }
-      if (callback) callback();
     }
   };
   xhr.send();
@@ -177,7 +185,10 @@ I18n.prototype.updatePageContent = function() {
     // Update language toggle button
     const langToggle = document.getElementById('lang-toggle');
     if (langToggle) {
-      langToggle.querySelector('.lang-text').textContent = this.currentLang === 'zh-CN' ? 'EN' : '中文';
+      const langText = langToggle.querySelector('.lang-text');
+      if (langText) {
+        langText.textContent = this.currentLang === 'zh-CN' ? 'EN' : '中文';
+      }
     }
 
     // Update footer
@@ -185,7 +196,7 @@ I18n.prototype.updatePageContent = function() {
     if (footerNotice) footerNotice.textContent = this.t('footer.notice');
   };
 
-  reloadFeatures() {
+I18n.prototype.reloadFeatures = function() {
     // 清空现有的特性列表
     const featureList = document.querySelector('#features-list');
     if (featureList) {
@@ -202,7 +213,7 @@ I18n.prototype.updatePageContent = function() {
         this.setupFeatureAutoLoad();
       }, 0);
     }
-  }
+  };
 
 I18n.prototype.setupFeatureAutoLoad = function() {
     const list = document.querySelector('#features-list');
@@ -313,8 +324,6 @@ I18n.prototype.setupReveal = function(nodes) {
 
     for (const node of items) io.observe(node);
   };
-
-};
 
 // Initialize i18n
 const i18n = new I18n();

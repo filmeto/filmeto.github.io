@@ -202,7 +202,12 @@
     </div>
     <script>
       // 仅用于页脚年份，不影响主功能
-      document.getElementById('y').textContent = String(new Date().getFullYear());
+      document.addEventListener('DOMContentLoaded', function() {
+        var yearElement = document.getElementById('y');
+        if (yearElement) {
+          yearElement.textContent = String(new Date().getFullYear());
+        }
+      });
     </script>
   </footer>
 </body>

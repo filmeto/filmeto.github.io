@@ -169,5 +169,4 @@ var zhCN = {
     copyright: "© {year} Filmeto",
     notice: "Dark · 简洁 · 可扩展目录：`assets/` / `downloads/`（后续可新增）"
   }
-};
-
+}
