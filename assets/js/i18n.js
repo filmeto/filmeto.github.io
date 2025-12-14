@@ -28,30 +28,32 @@ I18n.prototype.loadLanguage = function(lang, callback) {
     return;
   }
 
-  // 使用XMLHttpRequest加载语言文件
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', `./assets/js/locales/${lang}.js`, true);
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        // 使用eval执行语言文件（注意：实际项目中应该使用更安全的方法）
-        try {
-          eval(xhr.responseText);
-          if (lang === 'zh-CN') {
-            this.translations[lang] = zhCN;
-          } else if (lang === 'en-US') {
-            this.translations[lang] = enUS;
-          }
-          if (callback) callback();
-        } catch (e) {
-          console.error('Error evaluating language file for ' + lang + ':', e);
-        }
+  // 使用动态script标签加载语言文件，避免CORS问题
+  const script = document.createElement('script');
+  script.src = `./assets/js/locales/${lang}.js`;
+  script.onload = () => {
+    // 语言文件加载后，对应的变量（zhCN或enUS）已经在全局作用域中
+    try {
+      if (lang === 'zh-CN' && typeof zhCN !== 'undefined') {
+        this.translations[lang] = zhCN;
+      } else if (lang === 'en-US' && typeof enUS !== 'undefined') {
+        this.translations[lang] = enUS;
       } else {
-        console.error('Failed to load language file for ' + lang + '. Status: ' + xhr.status);
+        console.error('Language variable not found for ' + lang);
+        if (callback) callback();
+        return;
       }
+      if (callback) callback();
+    } catch (e) {
+      console.error('Error loading language file for ' + lang + ':', e);
+      if (callback) callback();
     }
   };
-  xhr.send();
+  script.onerror = () => {
+    console.error('Failed to load language file for ' + lang);
+    if (callback) callback();
+  };
+  document.head.appendChild(script);
 };
 
 I18n.prototype.t = function(key) {
