@@ -17,9 +17,13 @@ I18n.prototype.setLanguage = function(lang) {
   this.currentLang = lang;
   localStorage.setItem('filmeto-lang', lang);
   document.documentElement.lang = lang === 'zh-CN' ? 'zh-CN' : 'en';
-  this.updatePageContent();
-  // 重新加载特性列表
-  this.reloadFeatures();
+
+  // Load the language if not already loaded, then update content
+  this.loadLanguage(lang, () => {
+    this.updatePageContent();
+    // 重新加载特性列表
+    this.reloadFeatures();
+  });
 };
 
 I18n.prototype.loadLanguage = function(lang, callback) {
