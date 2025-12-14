@@ -38,7 +38,7 @@ var zhCN = {
           ['节奏控制', '支持快剪/长镜头风格'],
           ['可编辑', '每一格都能单独微调'],
         ],
-        img: './assets/img/feature-01.png',
+        img: './assets/img/feature-01.jpg',
         alt: 'Filmeto 功能截图占位：AI 自动分镜'
       },
       {
@@ -49,7 +49,7 @@ var zhCN = {
           ['标注信息', '时长、镜头号、场次、备注'],
           ['多视图', '网格/时间线/列表自由切换'],
         ],
-        img: './assets/img/feature-01.png',
+        img: './assets/img/feature-01.jpg',
         alt: 'Filmeto 功能截图占位：画布与序列'
       },
       {
@@ -60,7 +60,7 @@ var zhCN = {
           ['风格锚点', '色调/镜头语言/情绪基线'],
           ['约束生成', '避免人物设定与场景冲突'],
         ],
-        img: './assets/img/feature-01.png',
+        img: './assets/img/feature-01.jpg',
         alt: 'Filmeto 功能截图占位：一致性控制'
       },
       {
@@ -71,7 +71,7 @@ var zhCN = {
           ['版本对比', '改动点一眼可见'],
           ['导出共享', '分享链接或导出评审包'],
         ],
-        img: './assets/img/feature-01.png',
+        img: './assets/img/feature-01.jgp',
         alt: 'Filmeto 功能截图占位：协作与评审'
       },
       {
@@ -82,7 +82,7 @@ var zhCN = {
           ['标签体系', '情绪、地点、人物、动作'],
           ['快速重排', '按标签/场次批量调整'],
         ],
-        img: './assets/img/feature-01.png',
+        img: './assets/img/feature-01.jpg',
         alt: 'Filmeto 功能截图占位：结构化拆解'
       },
       {
@@ -93,7 +93,7 @@ var zhCN = {
           ['分辨率', '支持高清与打印版'],
           ['可扩展', '后续可接入更多交付模板'],
         ],
-        img: './assets/img/feature-01.png',
+        img: './assets/img/feature-01.jpg',
         alt: 'Filmeto 功能截图占位：导出与交付'
       }
     ]
